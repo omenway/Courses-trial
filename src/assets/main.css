@@ -1,1 +1,15 @@
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Comfortaa", cursive;
+}
+
+.main {
+    @apply p-4 space-y-8;
+}
+
+.app-main {
+    /* Push content away from fixed header/footer. */
+    @apply pt-20 pb-20;
+}

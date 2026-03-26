@@ -1,15 +1,26 @@
 <template>
-  <div>
-    <button
-      class="border border-gray-200 rounded-full px-3 py-1 hover:bg-blue-400 hover:text-white transition-colors duration-200 bg-blue-500 text-black-800"
-      @click="$emit('click')"
-    >
-      <slot></slot>
-    </button>
-  </div>
+    <div>
+        <button
+            :class="[
+                'border border-gray-200 rounded-full px-3 py-1 transition-colors duration-200 text-black hover:scale-105',
+                variant === 'danger'
+                    ? 'bg-gradient-to-r from-red-400 to-red-600 hover:bg-red-500 hover:text-white'
+                    : 'bg-gradient-to-r from-blue-400 to-indigo-400 hover:bg-blue-400 hover:text-white',
+            ]"
+            @click="$emit('click')"
+        >
+            <slot></slot>
+        </button>
+    </div>
 </template>
 
 <script setup>
-import { defineEmits } from 'vue'
-defineEmits(['click'])
+defineEmits(["click"]);
+
+defineProps({
+    variant: {
+        type: String,
+        default: "default",
+    },
+});
 </script>
